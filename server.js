@@ -18,10 +18,10 @@ function newConnection(socket) {
   console.log('new connection: ' + socket.id);
 
   socket.on('mouse', mouseMsg);
-  //for(var socketId in usersCurrentMouseData)
-  //{
-  //  socket.emit('mouse',usersCurrentMouseData[socketId]);
-  //}
+  for(var socketId in usersCurrentMouseData)
+  {
+    socket.emit('mouse',usersCurrentMouseData[socketId]);
+  }
 
 
 
