@@ -1,0 +1,57 @@
+var socket;
+var color;
+
+function setup() {
+  createCanvas(1000, 800);
+  background(51);
+  frameRate(100);
+
+  socket = io.connect();
+  socket.on('mouse', newDrawing);
+
+  color = {
+    r: random(255),
+    g: random(255),
+    b: random(255),
+  }
+}
+
+function newDrawing(data) {
+  noStroke();
+  fill(data.color.r, data.color.g, data.color.b);
+  ellipse(data.x, data.y, 36, 36)
+}
+
+function mouseDragged() {
+  console.log('Sending: ' + mouseX + ',' + mouseY)
+
+  var data = {
+    x: mouseX,
+    y: mouseY,
+    color: color
+  }
+
+  socket.emit('mouse', data);
+
+  noStroke();
+  fill(data.color.r, data.color.g, data.color.b);
+  ellipse(mouseX, mouseY, 36, 36)
+  ellipse(15,25,20,20);
+  fill(255);
+  textSize(10);
+  text('your color:',10,10);
+
+
+}
+
+function draw() {}
+
+function keyTyped() {
+  if (key === 'p') {
+    color = {
+      r: random(255),
+      g: random(255),
+      b: random(255)
+    }
+  }
+}
