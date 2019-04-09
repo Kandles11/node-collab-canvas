@@ -1,6 +1,5 @@
 var socket;
 var color;
-var size;
 
 function setup() {
   createCanvas(1000, 800);
@@ -16,13 +15,12 @@ function setup() {
     b: random(255),
   }
 
-  size = 36;
 }
 
 function newDrawing(data) {
   noStroke();
   fill(data.color.r, data.color.g, data.color.b);
-  ellipse(data.x, data.y, data.size, data.size)
+  ellipse(data.x, data.y, 36, 36)
 }
 
 function mouseDragged() {
@@ -32,7 +30,6 @@ function mouseDragged() {
     x: mouseX,
     y: mouseY,
     color: color,
-    size: size
   }
 
   socket.emit('mouse', data);
@@ -59,8 +56,5 @@ function keyTyped() {
     }
   }
 
-  if (key == 'q') {
-    size = size + 10
-  }
 
 }
