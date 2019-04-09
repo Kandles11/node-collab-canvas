@@ -16,13 +16,16 @@ function setup() {
     b: random(255),
   }
 
-  size = 36;
-}
+  size = {
+    width: 36,
+    height: 36,
+  }
+  
 
 function newDrawing(data) {
   noStroke();
   fill(data.color.r, data.color.g, data.color.b);
-  ellipse(data.x, data.y, data.size, data.size)
+  ellipse(data.x, data.y, data.size.width, data.size.height)
 }
 
 function mouseDragged() {
@@ -60,7 +63,9 @@ function keyTyped() {
   }
 
   if (key == 'q') {
-    size = size + 10
+    size = {
+      width: width + 10,
+      height: height + 10,
   }
-
+  }
 }
