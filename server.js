@@ -2,7 +2,7 @@ var express = require('express');
 
 var app = express();
 var server = app.listen(process.env.PORT || 3000);
-var usersCurrentMouseData = {};
+var usersCurrentMouseData = [];
 
 app.use(express.static('public'));
 
@@ -18,9 +18,9 @@ function newConnection(socket) {
   console.log('new connection: ' + socket.id);
 
   socket.on('mouse', mouseMsg);
-  for(var socketId in usersCurrentMouseData)
+  for(var data of usersCurrentMouseData)
   {
-    socket.emit('mouse',usersCurrentMouseData[socketId]);
+    socket.emit('mouse',data);
   }
 
 
@@ -28,7 +28,7 @@ function newConnection(socket) {
 
   function mouseMsg(data) {
     socket.broadcast.emit('mouse', data);
-    usersCurrentMouseData[socket.id] = data;
+    usersCurrentMouseData.push(data);
     console.log(data);
   }
 }
