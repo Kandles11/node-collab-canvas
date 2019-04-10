@@ -57,7 +57,8 @@ function keyTyped() {
   }
 
   if (key == 'z') {
-    socket.emit('clear');
+    var clearTF = true;
+    socket.emit('clear', clearTF);
   }
 
 

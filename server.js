@@ -25,8 +25,10 @@ function newConnection(socket) {
 
   socket.on('clear', clear);
 
-  function clear() {
+  function clear(clearTF) {
+    if (clearTF = true) {
     usersCurrentMouseData.length = 0;
+  }
   }
 
 
