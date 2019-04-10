@@ -18,14 +18,13 @@ function newConnection(socket) {
   console.log('new connection: ' + socket.id);
 
   socket.on('mouse', mouseMsg);
-  for(var data of usersCurrentMouseData)
-  {
-    socket.emit('mouse',data);
+  for (var data of usersCurrentMouseData) {
+    socket.emit('mouse', data);
   }
 
-  //socket.on('clear', function {
-//    console.log('server clear');
-  //});
+  socket.on('clear', function() {
+    console.log('server clear');
+  });
 
 
 
