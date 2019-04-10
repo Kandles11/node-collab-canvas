@@ -23,13 +23,13 @@ function newConnection(socket) {
     socket.emit('mouse',data);
   }
 
-  socket.on('clear', clear);
+  //socket.on('clear', clear);
 
-  function clear(clearTF) {
-    if (clearTF = true) {
-    usersCurrentMouseData.length = 0;
-  }
-  }
+  //function clear(clearTF) {
+  //  if (clearTF = true) {
+  //  usersCurrentMouseData.length = 0;
+  //}
+  //}
 
 
   function mouseMsg(data) {
