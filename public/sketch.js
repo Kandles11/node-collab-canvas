@@ -56,5 +56,9 @@ function keyTyped() {
     }
   }
 
+  if (key == 'z') {
+    socket.emit('clear');
+  }
+
 
 }

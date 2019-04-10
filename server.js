@@ -23,7 +23,11 @@ function newConnection(socket) {
     socket.emit('mouse',data);
   }
 
+  socket.on('clear', clear);
 
+  function clear() {
+    usersCurrentMouseData.length = 0;
+  }
 
 
   function mouseMsg(data) {
