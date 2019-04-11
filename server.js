@@ -26,7 +26,7 @@ function newConnection(socket) {
     socket.emit('mouse', data);
   }
 
-  socket.on('clear', function() {
+  client.on('clear', function(data) {
     console.log('server clear');
   });
 
