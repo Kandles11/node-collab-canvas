@@ -58,7 +58,7 @@ function keyTyped() {
 
   if (key == 'z') {
     console.log('clear');
-    io.socket.emit('clear')
+    socket.emit('clear')
   }
 
 
