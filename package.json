@@ -4,7 +4,7 @@
   "description": "sockets example ",
   "main": "server.js",
   "scripts": {
-    "test": "jshint server.js"
+    "test": "jshint server.js",
     "start": "node server.js"
   },
   "keywords": [
@@ -15,7 +15,7 @@
   "author": "Mason Thomas",
   "license": "ISC",
   "dependencies": {
-    "jshint": "^2.6.0"
+    "jshint": "^2.6.0",
     "express": "^4.16.4",
     "socket.io": "^2.2.0"
   }
