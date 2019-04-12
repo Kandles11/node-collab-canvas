@@ -27,7 +27,8 @@ function newConnection(socket) {
   }
 
   socket.on('clear', function(data) {
-    console.log('server clear');
+    usersCurrentMouseData.length = 0;
+    console.log(usersCurrentMouseData.length)
   });
 
 
