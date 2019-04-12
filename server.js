@@ -17,9 +17,9 @@ var io = socket(server);
 io.sockets.on('connection', newConnection);
 
 function newConnection(socket) {
-  let handshake = socket.handshake;
+  //let handshake = socket.handshake;
   console.log('new connection: ' + socket.id);
-  console.log(handshake);
+  //console.log(handshake);
 
   socket.on('mouse', mouseMsg);
   for (var data of usersCurrentMouseData) {
