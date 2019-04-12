@@ -2,6 +2,9 @@
   "name": "introduction-to-node",
   "version": "1.0.0",
   "description": "sockets example ",
+  "engines":{
+    "node": ">=10.15.3" 
+  }
   "main": "server.js",
   "scripts": {
     "test": "standard && jshint server.js",
