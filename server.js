@@ -1,3 +1,5 @@
+// jshint esversion: 6
+
 var express = require('express');
 
 var app = express();
@@ -28,7 +30,7 @@ function newConnection(socket) {
 
   socket.on('clear', function(data) {
     usersCurrentMouseData.length = 0;
-    console.log(usersCurrentMouseData.length)
+    console.log(usersCurrentMouseData.length);
     io.sockets.emit('browserReload');
     console.log('sending reload');
   });
