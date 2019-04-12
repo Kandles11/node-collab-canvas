@@ -26,7 +26,8 @@ window.mobilecheck = function() {
 
 if (check == true) {
   console.log('using mobile');
-}
+} else {
+  console.log('using desktop');
 
 function newDrawing(data) {
   noStroke();
