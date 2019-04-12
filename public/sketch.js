@@ -42,7 +42,9 @@ function mouseDragged() {
   textSize(10);
   text('your color:',10,10);
 
-
+  socket.on('browserReload', function () {
+     document.location.reload(true);
+  });
 }
 
 function draw() {}

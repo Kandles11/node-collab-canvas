@@ -29,6 +29,8 @@ function newConnection(socket) {
   socket.on('clear', function(data) {
     usersCurrentMouseData.length = 0;
     console.log(usersCurrentMouseData.length)
+    io.sockets.emit('browserReload');
+    console.log('sending reload');
   });
 
 
