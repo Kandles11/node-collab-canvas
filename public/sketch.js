@@ -52,7 +52,7 @@ function setup() {
  customButton.mousePressed(custom);
   
  penSlider = createSlider(1, 100, 20);
- penSlider.position(600, 25);
+ penSlider.position(630, 25);
 
   socket = io.connect();
   socket.on('mouse', newDrawing);
@@ -161,6 +161,9 @@ function draw() {
   text(rSlider.value(), 500, 20);
   text(gSlider.value(), 500, 40);
   text(bSlider.value(), 500, 60);
+  penSize = penSlider.value();
+  text(penSlider.value(), 640, 25);
+  
 }
 
 function keyTyped() {
