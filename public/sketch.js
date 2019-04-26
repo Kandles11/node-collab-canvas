@@ -118,6 +118,9 @@ if (check == true) {
 function newDrawing(data) {
   noStroke();
   fill(data.color.r, data.color.g, data.color.b);
+  if (data.y < 60) {
+    fill(0);
+  }
   ellipse(data.x, data.y, data.penSize, data.penSize);
 }
 
