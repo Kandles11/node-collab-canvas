@@ -143,11 +143,7 @@ function mouseDragged() {
     fill(data.color.r, data.color.g, data.color.b);
     ellipse(mouseX, mouseY, penSize, penSize)
   }
-  fill(data.color.r, data.color.g, data.color.b);
-  ellipse(15,25,20,20);
-  fill(255);
-  textSize(10);
-  text('your color:',10,10);
+  
 
   socket.on('browserReload', function () {
      document.location.reload(true);
@@ -165,6 +161,11 @@ function draw() {
   penSize = penSlider.value();
   text(penSlider.value(), 780, 40);
   text('pen size', 630, 25);
+  fill(data.color.r, data.color.g, data.color.b);
+  ellipse(15,25,20,20);
+  fill(255);
+  textSize(10);
+  text('your color:',10,10);
   
 }
 
