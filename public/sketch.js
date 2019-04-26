@@ -50,6 +50,9 @@ function setup() {
  customButton.position(550,10);
  customButton.size(50,50);
  customButton.mousePressed(custom);
+  
+ penSlider = createSlider(1, 100, 20);
+ penSlider.position(600, 25);
 
   socket = io.connect();
   socket.on('mouse', newDrawing);
