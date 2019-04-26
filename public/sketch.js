@@ -155,7 +155,7 @@ function mouseDragged() {
 }
 
 function draw() {
-  textSize(30);
+  textSize(20);
   fill(0);
   rect(0, 0, 1000, 75);
   fill(255);
