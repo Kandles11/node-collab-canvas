@@ -162,7 +162,8 @@ function draw() {
   text(gSlider.value(), 500, 40);
   text(bSlider.value(), 500, 60);
   penSize = penSlider.value();
-  text(penSlider.value(), 720, 35);
+  text(penSlider.value(), 750, 40);
+  text('pen size', 630, 25);
   
 }
 
