@@ -155,9 +155,9 @@ function draw() {
   fill(0);
   rect(0, 0, 1000, 75);
   fill(255);
-  text(rSlider.value(), 500, 15);
-  text(gSlider.value(), 500, 35);
-  text(bSlider.value(), 500, 55);
+  text(rSlider.value(), 500, 20);
+  text(gSlider.value(), 500, 40);
+  text(bSlider.value(), 500, 60);
 }
 
 function keyTyped() {
