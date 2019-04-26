@@ -1,11 +1,13 @@
 var socket;
 var color;
 var check;
+var customColor;
 
 function setup() {
   var red = color(255,0,0);
   var blue = color(0,0,255);
   var green = color(0,255,0);
+  var customColor = color(255,255,255);
   createCanvas(1000, 800);
   background(51);
   frameRate(100);
@@ -43,6 +45,7 @@ function setup() {
  bSlider.position(350, 45);
 
  customButton = createButton('submit color');
+ customButton.style('background-color', customColor)
  customButton.position(510,10);
  customButton.size(50,50);
  customButton.mousePressed(custom);
@@ -144,7 +147,12 @@ function mouseDragged() {
   });
 }
 
-function draw() {}
+function draw() {
+  customR = rSlider.value();
+  customG = gSlider.value();
+  customB = bSlider.value();
+  customColor = color(customR, customG, customB);
+}
 
 function keyTyped() {
   if (key === 'p') {
