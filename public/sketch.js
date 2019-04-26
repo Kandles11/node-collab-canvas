@@ -3,9 +3,11 @@ var color;
 var check;
 
 function setup() {
-  createCanvas(1000, 800);
+  createCanvas(1060, 800);
   background(51);
   frameRate(100);
+  fill(0);
+  rect(980,0,100,800);
 
   socket = io.connect();
   socket.on('mouse', newDrawing);
@@ -26,8 +28,10 @@ window.mobilecheck = function() {
 
 if (check == true) {
   console.log('using mobile');
+  alert('uh oh! collabCanvas works best on a laptop or desktop computer. collabCanvas still works, but the experience may be a tad buggy!')
 } else {
   console.log('using desktop');
+  alert('using desktop');
 }
 
 function newDrawing(data) {
