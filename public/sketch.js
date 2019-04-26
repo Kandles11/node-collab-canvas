@@ -47,7 +47,7 @@ function setup() {
 
  customButton = createButton('submit color');
  customButton.style('background-color', customColor)
- customButton.position(510,10);
+ customButton.position(720,10);
  customButton.size(50,50);
  customButton.mousePressed(custom);
 
@@ -155,9 +155,9 @@ function draw() {
   fill(0);
   rect(0, 0, 1000, 75);
   fill(255);
-  text(rSlider.value(), 700, 15);
-  text(gSlider.value(), 700, 35);
-  text(bSlider.value(), 700, 55);
+  text(rSlider.value(), 620, 15);
+  text(gSlider.value(), 620, 35);
+  text(bSlider.value(), 620, 55);
 }
 
 function keyTyped() {
