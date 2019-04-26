@@ -148,7 +148,8 @@ function mouseDragged() {
 }
 
 function draw() {
-  text(rSlider.value(), 400, 5);
+  fill(255);
+  text(rSlider.value(), 700, 15);
 }
 
 function keyTyped() {
