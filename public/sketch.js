@@ -9,7 +9,7 @@ function setup() {
   var blue = color(0,0,255);
   var green = color(0,255,0);
   var customColor = color(255,255,255);
-  createCanvas(1000, 800);
+  createCanvas(1200, 800);
   background(51);
   frameRate(100);
   fill(0);
@@ -153,7 +153,8 @@ function mouseDragged() {
 function draw() {
   textSize(20);
   fill(0);
-  rect(0, 0, 1000, 75);
+  rect(0, 0, 1200, 75);
+  rect(1000,0,200,800);
   fill(255);
   text(rSlider.value(), 500, 20);
   text(gSlider.value(), 500, 40);
