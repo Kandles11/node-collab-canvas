@@ -153,7 +153,7 @@ function mouseDragged() {
 
 function draw() {
   fill(0);
-  rect(650, 0, 100, 75);
+  rect(650, 0, 1000, 75);
   fill(255);
   text(rSlider.value(), 700, 15);
   text(gSlider.value(), 700, 35);
