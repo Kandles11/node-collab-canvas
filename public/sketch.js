@@ -153,10 +153,8 @@ function mouseDragged() {
 function draw() {
   textSize(20);
   fill(0);
-  strokeWeight(5);
   rect(0, 0, 1200, 75);
   rect(1000,0,200,800);
-  noStroke();
   fill(255);
   text(rSlider.value(), 500, 20);
   text(gSlider.value(), 500, 40);
@@ -169,6 +167,8 @@ function draw() {
   fill(255);
   textSize(10);
   text('current color:',10,10);
+  text('color codes', 1050, 15);
+  text('color1', 1050, 30);
   
 }
 
