@@ -149,9 +149,11 @@ function mouseDragged() {
 
 function draw() {
   fill(0);
-  rect(650, 0, 100, 100);
+  rect(650, 0, 100, 75);
   fill(255);
   text(rSlider.value(), 700, 15);
+  text(gSlider.value(), 700, 35);
+  text(bSlider.value(), 700, 55);
 }
 
 function keyTyped() {
