@@ -2,6 +2,7 @@ var socket;
 var color;
 var check;
 var customColor;
+var penSize = 20;
 
 function setup() {
   var red = color(255,0,0);
@@ -117,7 +118,7 @@ if (check == true) {
 function newDrawing(data) {
   noStroke();
   fill(data.color.r, data.color.g, data.color.b);
-  ellipse(data.x, data.y, 36, 36)
+  ellipse(data.x, data.y, data.penSize, data.penSize);
 }
 
 function mouseDragged() {
@@ -127,6 +128,7 @@ function mouseDragged() {
     x: mouseX,
     y: mouseY,
     color: color,
+    penSize: penSize,
   }
 
   socket.emit('mouse', data);
@@ -134,7 +136,7 @@ function mouseDragged() {
   if (mouseY > 90) {
     noStroke();
     fill(data.color.r, data.color.g, data.color.b);
-    ellipse(mouseX, mouseY, 36, 36)
+    ellipse(mouseX, mouseY, penSize, penSize)
   }
   fill(data.color.r, data.color.g, data.color.b);
   ellipse(15,25,20,20);
@@ -168,6 +170,14 @@ function keyTyped() {
   if (key == 'z') {
     console.log('clear');
     socket.emit('clear')
+  }
+
+  if (key == 'q') {
+    penSize = penSize - 5
+  }
+  
+  if (key == 'w') {
+    penSize = penSize + 5
   }
 
 
