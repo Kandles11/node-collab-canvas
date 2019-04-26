@@ -148,10 +148,7 @@ function mouseDragged() {
 }
 
 function draw() {
-  customR = rSlider.value();
-  customG = gSlider.value();
-  customB = bSlider.value();
-  customColor = color(customR, customG, customB);
+  text(rSlider.value(), 400, 5);
 }
 
 function keyTyped() {
