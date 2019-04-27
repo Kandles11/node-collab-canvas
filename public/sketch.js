@@ -1,10 +1,14 @@
 var socket;
 var color;
 var check;
-var customColor;
 var penSize = 20;
 
+
+function preload() {
+  roboto = loadFont('assets/Roboto-Medium.ttf')
+}
 function setup() {
+  cursor(CROSS)
   var red = color(255,0,0);
   var blue = color(0,0,255);
   var green = color(0,255,0);
@@ -15,44 +19,16 @@ function setup() {
   fill(0);
   rect(0,0,1000,75);
 
-  redButton = createButton('');
-  redButton.position(60,10);
-  redButton.size(50,50);
-  redButton.style('background-color', red);
-  redButton.mousePressed(changeColorRed);
-
-  blueButton = createButton('');
-  blueButton.position(130,10);
-  blueButton.size(50,50);
-  blueButton.style('background-color', blue);
-  blueButton.mousePressed(changeColorBlue);
-
-  greenButton = createButton('');
-  greenButton.position(200,10);
-  greenButton.size(50,50);
-  greenButton.style('background-color', green);
-  greenButton.mousePressed(changeColorGreen);
-
-  eraseButton = createButton('erase');
-  eraseButton.position(280,10);
-  eraseButton.size(50,50);
-  eraseButton.mousePressed(erase);
 
  rSlider = createSlider(0, 255, 100);
- rSlider.position(350, 5);
+ rSlider.position(25, 5);
  gSlider = createSlider(0, 255, 0);
- gSlider.position(350, 25);
+ gSlider.position(25, 25);
  bSlider = createSlider(0, 255, 255);
- bSlider.position(350, 45);
+ bSlider.position(25, 45);
 
- customButton = createButton('submit color');
- customButton.style('background-color', customColor)
- customButton.position(550,10);
- customButton.size(50,50);
- customButton.mousePressed(custom);
-  
  penSlider = createSlider(1, 100, 20);
- penSlider.position(630, 25);
+ penSlider.position(400, 25);
 
   socket = io.connect();
   socket.on('mouse', newDrawing);
@@ -63,46 +39,6 @@ function setup() {
     b: random(255),
   }
 
-}
-
-function changeColorRed() {
-  color = {
-    r: 255,
-    g: 0,
-    b: 0,
-  }
-}
-
-function changeColorBlue() {
-  color = {
-    r: 0,
-    g: 0,
-    b: 255,
-  }
-}
-
-function changeColorGreen() {
-  color = {
-    r: 0,
-    g: 255,
-    b: 0,
-  }
-}
-
-function erase() {
-  color = {
-    r: 51,
-    g: 51,
-    b: 51
-  }
-}
-
-function custom() {
-  color = {
-    r: rSlider.value(),
-    g: gSlider.value(),
-    b: bSlider.value()
-  }
 }
 
 window.mobilecheck = function() {
@@ -121,9 +57,7 @@ if (check == true) {
 function newDrawing(data) {
   noStroke();
   fill(data.color.r, data.color.g, data.color.b);
-  if (data.y > 75) {
     ellipse(data.x, data.y, data.penSize, data.penSize);
-  }
 }
 
 function mouseDragged() {
@@ -138,12 +72,10 @@ function mouseDragged() {
 
   socket.emit('mouse', data);
 
-  if (mouseY > 90) {
     noStroke();
     fill(data.color.r, data.color.g, data.color.b);
     ellipse(mouseX, mouseY, penSize, penSize)
-  }
-  
+
 
   socket.on('browserReload', function () {
      document.location.reload(true);
@@ -151,26 +83,51 @@ function mouseDragged() {
 }
 
 function draw() {
+  textFont(roboto);
   textSize(20);
   fill(0);
   rect(0, 0, 1200, 75);
   rect(1000,0,200,800);
+
   fill(255);
-  text(rSlider.value(), 500, 20);
-  text(gSlider.value(), 500, 40);
-  text(bSlider.value(), 500, 60);
+  text(rSlider.value(), 175, 20);
+  text(gSlider.value(), 175, 40);
+  text(bSlider.value(), 175, 60);
+
   penSize = penSlider.value();
-  text(penSlider.value(), 780, 40);
-  text('pen size', 630, 25);
+  text(penSlider.value(), 540, 40);
+  text('pen size', 400, 25);
+
+  textSize(20);
+  text('current',240,20);
+  text('color:',240,40)
   fill(color.r, color.g, color.b);
-  ellipse(15,25,20,20);
+  ellipse(330,25,35,35);
+
   fill(255);
-  text('color codes', 1050, 15);
-  text('color1', 1050, 30);
-  textSize(10);
-  text('current color:',10,10);
- 
-  
+  textSize(30);
+  text('color codes', 1010, 35);
+
+  textSize(20);
+  text('255, 99, 71', 1010, 100);
+  text('255, 140, 0', 1010, 150);
+  text('138, 43, 226', 1010, 200);
+  text('127, 255, 0', 1010, 250);
+
+  fill(255,99,71)
+  ellipse(1150, 90, 25, 25);
+  fill(255, 140, 0)
+  ellipse(1150, 140, 25, 25);
+  fill(138, 43, 226)
+  ellipse(1150, 190, 25, 25);
+  fill(127, 255, 0)
+  ellipse(1150, 240, 25, 25);
+
+  color = {
+    r: rSlider.value(),
+    g: gSlider.value(),
+    b: bSlider.value()
+  }
 }
 
 function keyTyped() {
@@ -190,7 +147,7 @@ function keyTyped() {
   if (key == 'q') {
     penSize = penSize - 5
   }
-  
+
   if (key == 'w') {
     penSize = penSize + 5
   }
