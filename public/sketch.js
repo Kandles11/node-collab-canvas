@@ -20,11 +20,11 @@ function setup() {
   rect(0,0,1000,75);
 
 
- rSlider = createSlider(0, 255, 100);
+ rSlider = createSlider(0, 255, random(255));
  rSlider.position(25, 5);
- gSlider = createSlider(0, 255, 0);
+ gSlider = createSlider(0, 255, random(255));
  gSlider.position(25, 25);
- bSlider = createSlider(0, 255, 255);
+ bSlider = createSlider(0, 255, random(255));
  bSlider.position(25, 45);
 
  penSlider = createSlider(1, 100, 20);
