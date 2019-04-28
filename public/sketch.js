@@ -2,6 +2,7 @@ var socket;
 var color;
 var check;
 var penSize = 20;
+var nickname = 'mason'
 
 
 function preload() {
@@ -19,7 +20,6 @@ function setup() {
   fill(0);
   rect(0,0,1000,75);
 
-
  rSlider = createSlider(0, 255, 100);
  rSlider.position(25, 5);
  gSlider = createSlider(0, 255, 0);
@@ -30,8 +30,8 @@ function setup() {
  penSlider = createSlider(1, 100, 20);
  penSlider.position(400, 25);
 
-  socket = io.connect();
-  socket.on('mouse', newDrawing);
+ socket = io.connect();
+ socket.on('mouse', newDrawing);
 
   color = {
     r: random(255),
@@ -40,6 +40,7 @@ function setup() {
   }
 
 }
+
 
 window.mobilecheck = function() {
   check = false;
@@ -123,6 +124,7 @@ function draw() {
   fill(127, 255, 0)
   ellipse(1150, 240, 25, 25);
 
+
   color = {
     r: rSlider.value(),
     g: gSlider.value(),
@@ -151,6 +153,4 @@ function keyTyped() {
   if (key == 'w') {
     penSize = penSize + 5
   }
-
-
 }

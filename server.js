@@ -5,6 +5,7 @@ var express = require('express');
 var app = express();
 var server = app.listen(process.env.PORT || 3000);
 var usersCurrentMouseData = [];
+var people = {}
 
 var handshake;
 
@@ -16,12 +17,28 @@ var socket = require('socket.io');
 
 var io = socket(server);
 
-io.sockets.on('connection', newConnection);
+
 
 function newConnection(socket) {
   //let handshake = socket.handshake;
   console.log('new connection: ' + socket.id);
   //console.log(handshake);
+
+
+  socket.on("connection", function (client) {
+  	client.on("join", function(name){
+  		people[client.id] = name;
+  		client.emit("update", "You have connected to the server.");
+  		socket.sockets.emit("update", name + " has joined the server.")
+  		socket.sockets.emit("update-people", people);
+  	});
+
+    client.on("disconnect", function(){
+		socket.sockets.emit("update", people[client.id] + " has left the server.");
+		delete people[client.id];
+		socket.sockets.emit("update-people", people);
+    });
+  });
 
   socket.on('mouse', mouseMsg);
   for (var data of usersCurrentMouseData) {
