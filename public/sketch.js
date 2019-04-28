@@ -78,8 +78,9 @@ function mouseDragged() {
 
     noStroke();
     fill(data.color.r, data.color.g, data.color.b);
+    if (mouse.y > 75) {
     ellipse(mouseX, mouseY, penSize, penSize)
-
+  }
 
   socket.on('browserReload', function () {
      document.location.reload(true);
