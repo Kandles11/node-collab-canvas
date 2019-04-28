@@ -78,7 +78,7 @@ function mouseDragged() {
 
     noStroke();
     fill(data.color.r, data.color.g, data.color.b);
-    if (mouse.y > 75) {
+    if (mouseY > 75) {
     ellipse(mouseX, mouseY, penSize, penSize)
   }
 
