@@ -27,7 +27,7 @@ function setup() {
  bSlider = createSlider(0, 255, random(255));
  bSlider.position(25, 45);
 
- penSlider = createSlider(1, 100, 20);
+ penSlider = createSlider(1, 75, 20);
  penSlider.position(400, 25);
 
   socket = io.connect();
@@ -87,6 +87,33 @@ function mouseDragged() {
   });
 }
 
+function mousePressed() {
+  let d = dist(mouseX, mouseY, 1150, 90);
+  if (d < 40) {
+    rSlider.value(255);
+    gSlider.value(99);
+    bSlider.value(71);
+  }
+  d = dist(mouseX, mouseY, 1150, 140);
+  if (d < 40) {
+    rSlider.value(255);
+    gSlider.value(140);
+    bSlider.value(0);
+  }
+  d = dist(mouseX, mouseY, 1150, 190);
+  if (d < 40) {
+    rSlider.value(138);
+    gSlider.value(43);
+    bSlider.value(226);
+  }
+  d = dist(mouseX, mouseY, 1150, 240);
+  if (d < 40) {
+    rSlider.value(127);
+    gSlider.value(255);
+    bSlider.value(0);
+  }
+}
+
 function draw() {
   textFont(roboto);
   textSize(20);
@@ -102,6 +129,7 @@ function draw() {
   penSize = penSlider.value();
   text(penSlider.value(), 540, 40);
   text('pen size', 400, 25);
+  ellipse(630, 35, penSlider.value(), penSlider.value());
 
   textSize(20);
   text('current',240,20);
@@ -114,10 +142,10 @@ function draw() {
   text('color codes', 1010, 35);
 
   textSize(20);
-  text('255, 99, 71', 1010, 100);
-  text('255, 140, 0', 1010, 150);
-  text('138, 43, 226', 1010, 200);
-  text('127, 255, 0', 1010, 250);
+  text('tomato', 1010, 100);
+  text('dark orange', 1010, 150);
+  text('blue violets', 1010, 200);
+  text('chartruese', 1010, 250);
 
   fill(255,99,71)
   ellipse(1150, 90, 25, 25);
