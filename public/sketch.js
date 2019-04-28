@@ -58,10 +58,10 @@ function newDrawing(data) {
   noStroke();
 
 
-  if (mouse.y > 80) {
   fill(data.color.r, data.color.g, data.color.b);
-    ellipse(data.x, data.y, data.penSize, data.penSize);
-  }
+   if (data.y > 75) {
+  ellipse(data.x, data.y, data.penSize, data.penSize);
+}
 }
 
 function mouseDragged() {
@@ -76,11 +76,9 @@ function mouseDragged() {
 
   socket.emit('mouse', data);
 
-    if (mouse.y > 80) {
     noStroke();
     fill(data.color.r, data.color.g, data.color.b);
     ellipse(mouseX, mouseY, penSize, penSize)
-  }
 
 
   socket.on('browserReload', function () {
