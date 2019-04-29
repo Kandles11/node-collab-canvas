@@ -2,6 +2,10 @@ var socket;
 var color;
 var check;
 var penSize = 20;
+var colorPicker = new iro.ColorPicker('.colorPicker', {
+  width: 100,
+});
+
 
 
 function preload() {
