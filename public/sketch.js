@@ -14,6 +14,7 @@ function preload() {
 function setup() {
   var canvas = createCanvas(1200, 800);
   canvas.parent('sketch-holder')
+  canvas.position(100,100);
   cursor(CROSS)
   var red = color(255,0,0);
   var blue = color(0,0,255);
