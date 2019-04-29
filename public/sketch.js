@@ -40,7 +40,6 @@ function setup() {
   var colorPicker = new iro.ColorPicker('#colorPicker', {
   width: 100,
 });
-  colorPicker.position(100,100);
   
   socket = io.connect();
   socket.on('mouse', newDrawing);
