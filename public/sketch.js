@@ -2,18 +2,25 @@ var socket;
 var color;
 var check;
 var penSize = 20;
+var colorPicker = new iro.ColorPicker('.colorPicker', {
+  width: 100,
+});
+
 
 
 function preload() {
   roboto = loadFont('assets/Roboto-Medium.ttf')
 }
 function setup() {
+  var canvas = createCanvas(1200, 800);
+  canvas.parent('sketch-holder')
+  canvas.position(100,100);
   cursor(CROSS)
   var red = color(255,0,0);
   var blue = color(0,0,255);
   var green = color(0,255,0);
   var customColor = color(255,255,255);
-  createCanvas(1200, 800);
+
   background(51);
   frameRate(100);
   fill(0);
