@@ -2,9 +2,7 @@ var socket;
 var color;
 var check;
 var penSize = 20;
-var colorPicker = new iro.ColorPicker('.colorPicker', {
-  width: 100,
-});
+
 
 
 
@@ -12,9 +10,7 @@ function preload() {
   roboto = loadFont('assets/Roboto-Medium.ttf')
 }
 function setup() {
-  var canvas = createCanvas(1200, 800);
-  canvas.parent('sketch-holder')
- // canvas.position(0,0);
+  createCanvas(1200, 800);
   cursor(CROSS)
   var red = color(255,0,0);
   var blue = color(0,0,255);
