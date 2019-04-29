@@ -37,7 +37,7 @@ function setup() {
  penSlider = createSlider(1, 75, 20);
  penSlider.position(400, 25);
 
-  var colorPicker = new iro.ColorPicker('.colorPicker', {
+  var colorPicker = new iro.ColorPicker('#colorPicker', {
   width: 100,
 });
   
