@@ -2,9 +2,9 @@ var socket;
 var color;
 var check;
 var penSize = 20;
-var colorPicker = new iro.ColorPicker('.colorPicker', {
-  width: 100,
-});
+//var colorPicker = new iro.ColorPicker('.colorPicker', {
+  //width: 100,
+//});
 
 
 
@@ -37,6 +37,10 @@ function setup() {
  penSlider = createSlider(1, 75, 20);
  penSlider.position(400, 25);
 
+  var colorPicker = new iro.ColorPicker('.colorPicker', {
+  width: 100,
+});
+  
   socket = io.connect();
   socket.on('mouse', newDrawing);
 
