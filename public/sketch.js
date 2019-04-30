@@ -3,21 +3,36 @@ var color;
 var check;
 var penSize = 20;
 
+var color1;
+var color2;
+var color3;
+var color4;
+var color5;
+var color6;
+var color7;
+var color8;
+var color9;
+var color10;
+var color11;
+var color12;
+
 
 function preload() {
   roboto = loadFont('assets/Roboto-Medium.ttf')
 }
 function setup() {
   cursor(CROSS)
-  var red = color(255,0,0);
-  var blue = color(0,0,255);
-  var green = color(0,255,0);
-  var customColor = color(255,255,255);
   createCanvas(1200, 800);
   background(51);
   frameRate(100);
   fill(0);
   rect(0,0,1000,75);
+
+  randomColor();
+
+randomButton = createButton('random colors');
+randomButton.position(1100,300);
+randomButton.mousePressed(randomColor);
 
 
  rSlider = createSlider(0, 255, random(255));
@@ -39,6 +54,80 @@ function setup() {
     b: random(255),
   }
 
+}
+
+function randomColor() {
+  color1 = {
+    r: random(0,255),
+    g: random(0,255),
+    b: random(0,255)
+  }
+
+  color2 = {
+    r: random(0,255),
+    g: random(0,255),
+    b: random(0,255)
+  }
+
+  color3 = {
+    r: random(0,255),
+    g: random(0,255),
+    b: random(0,255)
+  }
+
+  color4 = {
+    r: random(0,255),
+    g: random(0,255),
+    b: random(0,255)
+  }
+
+  color5 = {
+    r: random(0,255),
+    g: random(0,255),
+    b: random(0,255)
+  }
+
+  color6 = {
+    r: random(0,255),
+    g: random(0,255),
+    b: random(0,255)
+  }
+
+  color7 = {
+    r: random(0,255),
+    g: random(0,255),
+    b: random(0,255)
+  }
+
+  color8 = {
+    r: random(0,255),
+    g: random(0,255),
+    b: random(0,255)
+  }
+
+  color9 = {
+    r: random(0,255),
+    g: random(0,255),
+    b: random(0,255)
+  }
+
+  color10 = {
+    r: random(0,255),
+    g: random(0,255),
+    b: random(0,255)
+  }
+
+  color11 = {
+    r: random(0,255),
+    g: random(0,255),
+    b: random(0,255)
+  }
+
+  color12 = {
+    r: random(0,255),
+    g: random(0,255),
+    b: random(0,255)
+  }
 }
 
 window.mobilecheck = function() {
@@ -88,29 +177,79 @@ function mouseDragged() {
 }
 
 function mousePressed() {
-  let d = dist(mouseX, mouseY, 1150, 90);
+  let d = dist(mouseX, mouseY, 1050, 90);
   if (d < 40) {
-    rSlider.value(255);
-    gSlider.value(99);
-    bSlider.value(71);
+    rSlider.value(color1.r);
+    gSlider.value(color1.g);
+    bSlider.value(color1.b);
+  }
+  d = dist(mouseX, mouseY, 1050, 140);
+  if (d < 40) {
+    rSlider.value(color2.r);
+    gSlider.value(color2.g);
+    bSlider.value(color2.b);
+  }
+  d = dist(mouseX, mouseY, 1050, 190);
+  if (d < 40) {
+    rSlider.value(color3.r);
+    gSlider.value(color3.g);
+    bSlider.value(color3.b);
+  }
+  d = dist(mouseX, mouseY, 1050, 240);
+  if (d < 40) {
+    rSlider.value(color4.r);
+    gSlider.value(color4.g);
+    bSlider.value(color4.b);
+  }
+
+  d = dist(mouseX, mouseY, 1100, 90);
+  if (d < 40) {
+    rSlider.value(color5.r);
+    gSlider.value(color5.g);
+    bSlider.value(color5.b);
+  }
+  d = dist(mouseX, mouseY, 1100, 140);
+  if (d < 40) {
+    rSlider.value(color6.r);
+    gSlider.value(color6.g);
+    bSlider.value(color6.b);
+  }
+  d = dist(mouseX, mouseY, 1100, 190);
+  if (d < 40) {
+    rSlider.value(color7.r);
+    gSlider.value(color7.g);
+    bSlider.value(color7.b);
+  }
+  d = dist(mouseX, mouseY, 1100, 240);
+  if (d < 40) {
+    rSlider.value(color8.r);
+    gSlider.value(color8.g);
+    bSlider.value(color8.b);
+  }
+
+  d = dist(mouseX, mouseY, 1150, 90);
+  if (d < 40) {
+    rSlider.value(color9.r);
+    gSlider.value(color9.g);
+    bSlider.value(color9.b);
   }
   d = dist(mouseX, mouseY, 1150, 140);
   if (d < 40) {
-    rSlider.value(255);
-    gSlider.value(140);
-    bSlider.value(0);
+    rSlider.value(color10.r);
+    gSlider.value(color10.g);
+    bSlider.value(color10.b);
   }
   d = dist(mouseX, mouseY, 1150, 190);
   if (d < 40) {
-    rSlider.value(138);
-    gSlider.value(43);
-    bSlider.value(226);
+    rSlider.value(color11.r);
+    gSlider.value(color11.g);
+    bSlider.value(color11.b);
   }
   d = dist(mouseX, mouseY, 1150, 240);
   if (d < 40) {
-    rSlider.value(127);
-    gSlider.value(255);
-    bSlider.value(0);
+    rSlider.value(color12.r);
+    gSlider.value(color12.g);
+    bSlider.value(color12.b);
   }
 }
 
@@ -141,19 +280,32 @@ function draw() {
   textSize(30);
   text('color codes', 1010, 35);
 
-  textSize(20);
-  text('tomato', 1010, 100);
-  text('dark orange', 1010, 150);
-  text('blue violets', 1010, 200);
-  text('chartruese', 1010, 250);
 
-  fill(255,99,71)
+  fill(color1.r,color1.g,color1.b);
+  ellipse(1050, 90, 25, 25);
+  fill(color2.r,color2.g,color2.b);
+  ellipse(1050, 140, 25, 25);
+  fill(color3.r,color3.g,color3.b);
+  ellipse(1050, 190, 25, 25);
+  fill(color4.r,color4.g,color4.b);
+  ellipse(1050, 240, 25, 25);
+
+  fill(color5.r,color5.g,color5.b);
+  ellipse(1100, 90, 25, 25);
+  fill(color6.r,color6.g,color6.b);
+  ellipse(1100, 140, 25, 25);
+  fill(color7.r,color7.g,color7.b);
+  ellipse(1100, 190, 25, 25);
+  fill(color8.r,color8.g,color8.b);
+  ellipse(1100, 240, 25, 25);
+
+  fill(color9.r,color9.g,color9.b);
   ellipse(1150, 90, 25, 25);
-  fill(255, 140, 0)
+  fill(color10.r,color10.g,color10.b);
   ellipse(1150, 140, 25, 25);
-  fill(138, 43, 226)
+  fill(color11.r,color11.g,color11.b);
   ellipse(1150, 190, 25, 25);
-  fill(127, 255, 0)
+  fill(color12.r,color12.g,color12.b);
   ellipse(1150, 240, 25, 25);
 
   color = {
