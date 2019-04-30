@@ -33,7 +33,7 @@ function setup() {
   randomColor();
 
 randomButton = createButton('random colors');
-randomButton.position(1100,300);
+randomButton.position(1050,300);
 randomButton.mousePressed(randomColor);
 
 
