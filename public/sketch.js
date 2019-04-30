@@ -17,12 +17,14 @@ var color11;
 var color12;
 
 
+
+
 function preload() {
   roboto = loadFont('assets/Roboto-Medium.ttf')
 }
 function setup() {
-  cursor(CROSS)
   createCanvas(1200, 800);
+  cursor(CROSS)
   background(51);
   frameRate(100);
   fill(0);
@@ -45,6 +47,7 @@ randomButton.mousePressed(randomColor);
  penSlider = createSlider(1, 75, 20);
  penSlider.position(400, 25);
 
+  
   socket = io.connect();
   socket.on('mouse', newDrawing);
 
